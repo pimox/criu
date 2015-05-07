@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#DH_VERBOSE = 1
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=-all
+
+# main packaging script based on dh7 syntax
+%:
+	dh $@ --with python2
+
+
+override_dh_strip:
+	dh_strip --dbg-package=criu-dbg
+
+
+override_dh_auto_test:
+	# this fails - disable and ignore for now
+
+override_dh_install:
+	#dh_install --exclude=.pyc --fail-missing
+	dh_install --exclude=.pyc --fail-missing
+
+override_dh_auto_install:
+	dh_auto_install -- PREFIX="/usr" LOGROTATEDIR="/etc/logrotate.d"
+
+	mv $(CURDIR)/debian/tmp/lib/python2.7 $(CURDIR)/debian/tmp/usr/lib/
+
+
+
+

@@ -1,0 +1,5 @@
+criu (1.5.2-1) unstable; urgency=low
+
+  * Initial release for Proxmox VE
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 07 May 2015 11:47:29 +0200

@@ -1,0 +1,9 @@
+etc/logrotate.d/criu-service
+bin/crit
+usr/sbin/criu
+usr/share/man/man8/criu.8
+usr/lib/systemd/system/criu.socket
+usr/lib/systemd/system/criu.service
+usr/lib/x86_64-linux-gnu
+usr/include/criu
+usr/lib/python2.7
