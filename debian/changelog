@@ -1,3 +1,9 @@
+criu (1.6.0-1) unstable; urgency=medium
+
+  * update to latest upstream (commit 4a895813ae8bc6420fd1eec2455434fd0f7abf9b)
+
+ -- Proxmox Support Team <support@proxmox.com>  Sun, 09 Aug 2015 11:54:21 +0200
+
 criu (1.5.2-1) unstable; urgency=low
 
   * Initial release for Proxmox VE

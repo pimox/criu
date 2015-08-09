@@ -1,5 +1,5 @@
 etc/logrotate.d/criu-service
-bin/crit
+usr/bin/crit
 usr/sbin/criu
 usr/share/man/man8/criu.8
 usr/lib/systemd/system/criu.socket

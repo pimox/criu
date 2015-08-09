@@ -1,7 +1,7 @@
 RELEASE=4.0
 
 PACKAGE=criu
-PKGVER=1.5.2
+PKGVER=1.6.0
 DEBREL=1
 
 SRCDIR=criu
@@ -32,6 +32,7 @@ download ${SRCTAR}:
 	git clone https://github.com/xemul/${SRCDIR}
 	tar czf ${SRCTAR}.tmp ${SRCDIR}
 	mv ${SRCTAR}.tmp ${SRCTAR}
+
 .PHONY: upload
 upload: ${DEBS}
 	umount /pve/${RELEASE}; mount /pve/${RELEASE} -o rw 

@@ -25,8 +25,6 @@ override_dh_install:
 override_dh_auto_install:
 	dh_auto_install -- PREFIX="/usr" LOGROTATEDIR="/etc/logrotate.d"
 
-	mv $(CURDIR)/debian/tmp/lib/python2.7 $(CURDIR)/debian/tmp/usr/lib/
-
 
 
 
