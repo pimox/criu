@@ -10,14 +10,16 @@ SRCTAR=${SRCDIR}.tgz
 ARCH:=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
 GITVERSION:=$(shell cat .git/refs/heads/master)
 
-DEBS=					\
-${PACKAGE}_${PKGVER}-${DEBREL}_amd64.deb  			\
-${PACKAGE}-dbg_${PKGVER}-${DEBREL}_amd64.deb
+DEB1=${PACKAGE}_${PKGVER}-${DEBREL}_amd64.deb
+DEB_DBG=${PACKAGE}-dbg_${PKGVER}-${DEBREL}_amd64.deb
+DEBS=$(DEB1) $(DEB_DBG)
 
 all: ${DEBS}
 	echo ${DEBS}
 
-deb ${DEBS}: ${SRCTAR}
+.PHONY: deb
+deb $(DEB_DBG): $(DEB1)
+$(DEB1): $(SRCTAR)
 	rm -rf ${SRCDIR}
 	tar xf ${SRCTAR}
 	cp -a debian ${SRCDIR}/debian
