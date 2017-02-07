@@ -5,7 +5,10 @@ Maintainer: Proxmox Support Team <support@proxmox.com>
 Build-Depends:
  debhelper (>= 9),
  dh-python,
+ libnl-3-dev,
+ libnet1-dev,
  libprotobuf-dev,
+ libprotobuf-c-dev,
  protobuf-c-compiler,
  protobuf-compiler,
  asciidoc
