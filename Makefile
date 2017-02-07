@@ -1,7 +1,7 @@
 RELEASE=4.0
 
 PACKAGE=criu
-PKGVER=1.6.0
+PKGVER=2.10
 DEBREL=1
 
 SRCDIR=criu
@@ -29,10 +29,10 @@ $(DEB1): $(SRCTAR)
 
 
 .PHONY: download
-download ${SRCTAR}:
-	rm -rf ${SRCDIR} ${SRCTAR} ${SRCTAR}.tmp
-	git clone https://github.com/xemul/${SRCDIR}
-	tar czf ${SRCTAR}.tmp ${SRCDIR}
+download:
+	rm -rf ${SRCDIR} ${SRCTAR}
+	git clone -b v$(PKGVER) git://github.com/xemul/$(PACKAGE).git
+	tar czf ${SRCTAR}.tmp --exclude=.git ${SRCDIR}
 	mv ${SRCTAR}.tmp ${SRCTAR}
 
 .PHONY: upload

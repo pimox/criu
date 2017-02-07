@@ -1,3 +1,9 @@
+criu (2.10-1) unstable; urgency=medium
+
+  * update to version 2.10
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 07 Feb 2017 13:48:12 +0100
+
 criu (1.6.0-1) unstable; urgency=medium
 
   * update to latest upstream (commit 4a895813ae8bc6420fd1eec2455434fd0f7abf9b)

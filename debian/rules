@@ -5,10 +5,13 @@
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 export DEB_BUILD_MAINT_OPTIONS = hardening=-all
+export CFLAGS+=-fPIC
+export LDFLAGS=
+TMP=$(CURDIR)/debian/criu
 
 # main packaging script based on dh7 syntax
 %:
-	dh $@ --with python2
+	dh $@ --parallel --with python2
 
 
 override_dh_strip:
@@ -23,8 +26,5 @@ override_dh_install:
 	dh_install --exclude=.pyc --fail-missing
 
 override_dh_auto_install:
-	dh_auto_install -- PREFIX="/usr" LOGROTATEDIR="/etc/logrotate.d"
-
-
-
-
+	dh_auto_install -- DESTDIR="$(TMP)" PREFIX="/usr" LIBEXECDIR="/usr/lib"
+	find $(TMP)/usr/lib -type d -empty -delete
