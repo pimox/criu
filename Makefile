@@ -10,8 +10,8 @@ SRCTAR=${SRCDIR}.tgz
 ARCH:=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
 GITVERSION:=$(shell cat .git/refs/heads/master)
 
-DEB1=${PACKAGE}_${PKGVER}-${DEBREL}_amd64.deb
-DEB_DBG=${PACKAGE}-dbg_${PKGVER}-${DEBREL}_amd64.deb
+DEB1=${PACKAGE}_${PKGVER}-${DEBREL}_$(ARCH).deb
+DEB_DBG=${PACKAGE}-dbg_${PKGVER}-${DEBREL}_$(ARCH).deb
 DEBS=$(DEB1) $(DEB_DBG)
 
 all: ${DEBS}
