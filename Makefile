@@ -25,7 +25,7 @@ $(DEB1): $(SRCTAR)
 	mv ${SRCDIR}/debian/changelog ${SRCDIR}/debian/changelog.org
 	cat changelog.Debian ${SRCDIR}/debian/changelog.org > ${SRCDIR}/debian/changelog
 	echo "git clone git://git.proxmox.com/git/criu.git\\ngit checkout ${GITVERSION}" >  ${SRCDIR}/debian/SOURCE
-	cd ${SRCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
+	cd ${SRCDIR}; dpkg-buildpackage -b -us -uc
 	lintian ${DEBS}
 
 
