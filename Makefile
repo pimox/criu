@@ -11,7 +11,7 @@ ARCH:=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
 GITVERSION:=$(shell cat .git/refs/heads/master)
 
 DEB1=${PACKAGE}_${PKGVER}-${DEBREL}_$(ARCH).deb
-DEB_DBG=${PACKAGE}-dbg_${PKGVER}-${DEBREL}_$(ARCH).deb
+DEB_DBG=${PACKAGE}-dbgsym_${PKGVER}-${DEBREL}_$(ARCH).deb
 DEBS=$(DEB1) $(DEB_DBG)
 
 all: ${DEBS}
@@ -22,7 +22,8 @@ deb $(DEB_DBG): $(DEB1)
 $(DEB1): $(SRCTAR)
 	rm -rf ${SRCDIR}
 	tar xf ${SRCTAR}
-	cp -a debian ${SRCDIR}/debian
+	mv ${SRCDIR}/debian/changelog ${SRCDIR}/debian/changelog.org
+	cat changelog.Debian ${SRCDIR}/debian/changelog.org > ${SRCDIR}/debian/changelog
 	echo "git clone git://git.proxmox.com/git/criu.git\\ngit checkout ${GITVERSION}" >  ${SRCDIR}/debian/SOURCE
 	cd ${SRCDIR}; dpkg-buildpackage -rfakeroot -b -us -uc
 	lintian ${DEBS}
