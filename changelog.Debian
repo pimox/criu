@@ -1,3 +1,9 @@
+criu (3.11-2~bpo90) unstable; urgency=medium
+
+  * build 3.11-2 for Debian Buster
+
+ -- Proxmox Support Team <support@proxmox.com>  Thu, 21 Mar 2019 10:27:42 +0100
+
 criu (2.11.1-1~bpo90) unstable; urgency=medium
 
   * rebuild 2.11.1-1 for Debian Stretch
