@@ -32,7 +32,7 @@ $(DEB1): $(SRCTAR)
 .PHONY: download
 download:
 	rm -rf ${SRCDIR} ${SRCTAR}
-	git clone -b debian/2.11.1-1 https://anonscm.debian.org/git/collab-maint/criu.git ${SRCDIR}
+	git clone -b debian/3.11-2 https://anonscm.debian.org/git/collab-maint/criu.git ${SRCDIR}
 	tar czf ${SRCTAR}.tmp --exclude=.git ${SRCDIR}
 	mv ${SRCTAR}.tmp ${SRCTAR}
 
